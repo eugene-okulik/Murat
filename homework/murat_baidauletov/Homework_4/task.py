@@ -1,7 +1,7 @@
 # Cоздал словарь my_dict
 my_dict = {'tuple': (None, False, 1, 3, 'tuple_text', 58.6),
            'list': [1, 2, 3, 'list_text', 98.35, True],
-           'dict': {'integer':4, 'boolean':True, 'float':6.3, 6:'six', 'dict_text':'dict_text'},
+           'dict': {'integer': 4, 'boolean': True, 'float': 6.3, 6: 'six', 'dict_text': 'dict_text'},
            'set': {6, 'blabla', None, 8, 'set_text', 4.5}}
 
 # Вывел последний элемент tuple
