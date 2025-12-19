@@ -12,7 +12,7 @@ my_dict['list'].append(45)
 my_dict['list'].pop(1)
 
 # Добавил в dict элемент с ключом 'i am a tuple' и удалил люой элемент
-my_dict['dict']['i am a tuple'] = 15
+my_dict['dict'][('i am a tuple',)] = 15
 my_dict['dict'].pop('boolean')
 
 # Добавил в set новый элемент и удалил элемент
