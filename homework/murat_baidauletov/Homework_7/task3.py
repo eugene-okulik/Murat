@@ -7,5 +7,6 @@ def add_ten(text):
     a = text.split()
     return (int(a[-1]) + 10)
 
+
 for result in results:
     print(add_ten(result))
