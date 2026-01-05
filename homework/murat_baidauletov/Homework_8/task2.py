@@ -1,6 +1,6 @@
 # Ограничили количество шагов до 100,чтобы случайно не запустить бесконечный цикл.
 
-def fibonachi(limit = 100):
+def fibonachi(limit=100):
     start_num1 = 0
     start_num2 = 1
     count = 1
@@ -8,6 +8,7 @@ def fibonachi(limit = 100):
         yield start_num1
         start_num1, start_num2 = start_num2, start_num1 + start_num2
         count += 1
+
 
 num = 0
 for number in fibonachi(1000000):
