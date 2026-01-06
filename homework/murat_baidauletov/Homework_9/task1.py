@@ -5,7 +5,3 @@ python_time = datetime.datetime.strptime(test_time, "%b %d, %Y - %H:%M:%S")
 print(python_time)
 print(python_time.strftime("%B"))
 print(f'{python_time.strftime("%d.%m.%Y, %H:%M")}')
-
-
-
-
