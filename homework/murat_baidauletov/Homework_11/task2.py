@@ -1,5 +1,14 @@
 class Book:
-    def __init__(self, page_material, text, title, author, page_count, isbn, reserved = False):
+    def __init__(
+        self,
+        page_material,
+        text,
+        title,
+        author,
+        page_count,
+        isbn,
+        reserved=False
+    ):
         self.page_material = page_material
         self.text = text
         self.title = title
@@ -8,34 +17,72 @@ class Book:
         self.isbn = isbn
         self.reserved = reserved
 
-    def reserved_book(self):
-        if self.reserved:
-            print(f"Название: {self.title}, Автор: {self.author}, страниц: {self.page_count},  материал: "
-                  f"{self.page_material}, зарезервирована")
-        else:
-            print(f"Название: {self.title}, Автор: {self.author}, страниц: {self.page_count},  материал: "
-                  f"{self.page_material}")
 
-class scholl_book(Book):
-    def __init__(self, page_material, text, title, author, page_count, isbn, subject, numb_class, reserved = False):
-        super().__init__(page_material, text, title, author, page_count, isbn, reserved)
+class SchoolBook(Book):
+    def __init__(
+        self,
+        page_material,
+        text,
+        title,
+        author,
+        page_count,
+        isbn,
+        subject,
+        school_class,
+        tasks,
+        reserved=False
+    ):
+        super().__init__(
+            page_material,
+            text,
+            title,
+            author,
+            page_count,
+            isbn,
+            reserved
+        )
         self.subject = subject
-        self.numb_class = numb_class
+        self.school_class = school_class
+        self.tasks = tasks
 
     def reserved_book(self):
         if self.reserved:
-            print(f"Название: {self.title}, Автор: {self.author}, страниц: {self.page_count}, предмет: {self.subject}, "
-                  f"класс: {self.numb_class}, зарезервирована")
+            print(
+                f"Название: {self.title}, Автор: {self.author}, "
+                f"страниц: {self.page_count}, предмет: {self.subject}, "
+                f"класс: {self.school_class}, зарезервирована"
+            )
         else:
-            print(f"Название: {self.title}, Автор: {self.author}, страниц: {self.page_count}, предмет: {self.subject}, "
-                  f"класс: {self.numb_class}")
-
-reserved_class_book = scholl_book('sdf','sdfdsf','sdfsdf','sdfds',56, "456",
-                                  'математика', 5, reserved=True)
-reserved_class_book.reserved_book()
-
-no_reserved_class_book = scholl_book('sdf','sdfdsf','sdfsdf','sdfds',56, "456",
-                                     'математика', 5)
-no_reserved_class_book.reserved_book()
+            print(
+                f"Название: {self.title}, Автор: {self.author}, "
+                f"страниц: {self.page_count}, предмет: {self.subject}, "
+                f"класс: {self.school_class}"
+            )
 
 
+reserved_school_book = SchoolBook(
+    "бумага",
+    True,
+    "Алгебра",
+    "Иванов",
+    200,
+    "123",
+    "Математика",
+    9,
+    True,
+    reserved=True
+)
+reserved_school_book.reserved_book()
+
+not_reserved_school_book = SchoolBook(
+    "бумага",
+    True,
+    "История",
+    "Петров",
+    180,
+    "456",
+    "История",
+    8,
+    True
+)
+not_reserved_school_book.reserved_book()
