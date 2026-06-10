@@ -67,6 +67,7 @@ class SchoolBook(Book):
                 f"класс: {self.school_class}"
             )
 
+
 # add book1
 book1 = Book(
     "Тест",
