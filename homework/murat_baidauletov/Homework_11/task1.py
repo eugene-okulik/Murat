@@ -29,6 +29,7 @@ class Book:
                 f"страниц: {self.page_count}, материал: {self.page_material}"
             )
 
+
 class SchoolBook(Book):
     def __init__(
         self,
@@ -66,7 +67,7 @@ class SchoolBook(Book):
                 f"класс: {self.school_class}"
             )
 
-#add book1
+# add book1
 book1 = Book(
     "Тест",
     "тест123",
@@ -74,11 +75,11 @@ book1 = Book(
     "458"
 )
 
-#reserved book1
+# reserved book1
 book1.reserved = True
 book1.show_book_info()
 
-#add book2
+# add book2
 book2 = Book(
     "Война и мир",
     "Мурат murat",
