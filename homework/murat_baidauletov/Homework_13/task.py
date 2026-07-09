@@ -36,5 +36,5 @@ for line in read_file():
         ).group()
         date = datetime.strptime(date_text, "%Y-%m-%d %H:%M:%S.%f")
         today = datetime.now()
-        days_ago= today - date
+        days_ago = today - date
         print(days_ago.days)
