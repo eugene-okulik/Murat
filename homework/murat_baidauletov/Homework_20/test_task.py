@@ -19,28 +19,24 @@ def before_after():
 
 
 @pytest.fixture()
-def add_del_new_car():
+def new_car():
     body = {
         "name": "MuratTest",
         "data": {"color": "krasny", "size": "small"}
     }
+
     response = requests.post(URL, json=body)
-    assert response.status_code == 200, 'Не создался обьект'
-    id_object = response.json()['id']
+    assert response.status_code == 200, "Не создался объект"
+
+    id_object = response.json()["id"]
+
     yield id_object
-    response = requests.delete(URL + '/' + str(id_object))
-    assert response.status_code == 200, 'Не удалился обект '
 
+    get_response = requests.get(f"{URL}/{id_object}")
 
-@pytest.fixture()
-def add_new_car():
-    body = {
-        "name": "MuratTest",
-        "data": {"color": "krasny", "size": "small"}
-    }
-    response = requests.post(URL, json=body)
-    assert response.status_code == 200, 'Не создался обьект'
-    return response.json()['id']
+    if get_response.status_code == 200:
+        delete_response = requests.delete(f"{URL}/{id_object}")
+        assert delete_response.status_code == 200, "Не удалился объект"
 
 
 @pytest.mark.parametrize("body", [
@@ -91,28 +87,28 @@ def test_post_car_without_name():
 
 
 @pytest.mark.critical
-def test_patch_car(add_del_new_car):
+def test_patch_car(new_car):
     body = {
         "name": "PatchTestMurat"
     }
-    response = requests.patch(URL + '/' + str(add_del_new_car), json=body)
+    response = requests.patch(URL + '/' + str(new_car), json=body)
     assert response.status_code == 200
     response_json = response.json()
     assert response_json['name'] == body['name']
 
 
 @pytest.mark.medium
-def test_put_car(add_del_new_car):
+def test_put_car(new_car):
     body = {
         "name": "PutTest",
         "data": {"color": "Putkrasny", "size": "Putsmall"}
     }
-    response = requests.put(URL + '/' + str(add_del_new_car), json=body)
+    response = requests.put(URL + '/' + str(new_car), json=body)
     assert response.status_code == 200
     assert response.json()['name'] == body['name']
     assert response.json()['data']['size'] == body['data']['size']
 
 
-def test_delete_car(add_new_car):
-    response = requests.delete(URL + '/' + str(add_new_car))
+def test_delete_car(new_car):
+    response = requests.delete(URL + '/' + str(new_car))
     assert response.status_code == 200
