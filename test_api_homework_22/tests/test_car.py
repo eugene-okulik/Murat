@@ -67,6 +67,7 @@ def test_put_car(new_car, update_car_endpoint):
     update_car_endpoint.check_status_code(200)
     update_car_endpoint.check_response_data(body)
 
+
 @allure.feature("Получение объекта")
 @allure.story("Получение объекта по ID")
 @allure.title("Получение существующего объекта")
